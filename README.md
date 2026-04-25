@@ -21,7 +21,7 @@ The repository metadata follows the common alexbelgium pattern (`name`, `udev`, 
 
 ## monetr version
 
-Keep **`version`** in `monetr/config.yaml` and the **`BUILD_VERSION`** default in `monetr/Dockerfile` aligned with the tag from [ghcr.io/monetr/monetr](https://github.com/monetr/monetr/pkgs/container/monetr).
+Keep **`version`** in `monetr/config.yaml` aligned with the add-on release and **`MONETR_VERSION`** in `monetr/Dockerfile` aligned with the tag from [ghcr.io/monetr/monetr](https://github.com/monetr/monetr/pkgs/container/monetr).
 
 monetr's official docs recommend using pinned version tags and note that image tags omit the `v` prefix from release versions; for example release `v1.13.0` uses image tag `1.13.0`.
 

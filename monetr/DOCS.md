@@ -40,7 +40,7 @@ Use **`env_vars`** for advanced monetr settings that are not first-class add-on 
 
 ## Upgrading monetr
 
-Match **`version`** in `config.yaml` and the **`BUILD_VERSION`** default in `Dockerfile`, then rebuild or reinstall the add-on.
+Match **`version`** in `config.yaml` to the add-on release and **`MONETR_VERSION`** in `Dockerfile` to the upstream monetr image tag, then rebuild or reinstall the add-on.
 
 ## Notes from monetr's Docker docs
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.13.0
+## 1.13.0a
 
 - Bundle PostgreSQL and Valkey in the same container (optional; default on), similar to running monetr's compose stack in one add-on.
 - Align repository metadata with common community patterns ([alexbelgium/hassio-addons](https://github.com/alexbelgium/hassio-addons): `repository.json`, `panel_icon`, `url`).

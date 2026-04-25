@@ -1,6 +1,7 @@
-# Monetr binary version — keep in sync with `version` in config.yaml
-ARG BUILD_VERSION=1.13.0
-FROM ghcr.io/monetr/monetr:${BUILD_VERSION} AS upstream
+# Add-on build version may include HA-specific suffixes; monetr image tags must not.
+ARG BUILD_VERSION=1.13.0a
+ARG MONETR_VERSION=1.13.0
+FROM ghcr.io/monetr/monetr:${MONETR_VERSION} AS upstream
 
 FROM debian:13-slim
 

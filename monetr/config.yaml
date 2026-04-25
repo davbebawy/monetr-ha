@@ -1,5 +1,5 @@
 name: monetr
-version: "1.13.0"
+version: "1.13.0a"
 slug: monetr
 description: Personal finance and budgeting with optional bundled PostgreSQL and Valkey
 url: https://github.com/davidbebawy/monetr-ha/tree/main/monetr
