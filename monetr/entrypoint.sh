@@ -100,14 +100,33 @@ start_bundled_postgres() {
 }
 
 start_bundled_valkey() {
+  local valkey_user=""
+  local candidate
+
+  for candidate in valkey redis _valkey; do
+    if id -u "$candidate" >/dev/null 2>&1; then
+      valkey_user="$candidate"
+      break
+    fi
+  done
+
   mkdir -p /data/valkey
-  chown redis:redis /data/valkey
-  valkey-server \
-    --daemonize yes \
-    --bind 127.0.0.1 \
-    --port 6379 \
-    --dir /data/valkey \
-    --pidfile /data/valkey/valkey-server.pid
+  if [ -n "$valkey_user" ]; then
+    chown "$valkey_user" /data/valkey
+    sudo -u "$valkey_user" valkey-server \
+      --daemonize yes \
+      --bind 127.0.0.1 \
+      --port 6379 \
+      --dir /data/valkey \
+      --pidfile /data/valkey/valkey-server.pid
+  else
+    valkey-server \
+      --daemonize yes \
+      --bind 127.0.0.1 \
+      --port 6379 \
+      --dir /data/valkey \
+      --pidfile /data/valkey/valkey-server.pid
+  fi
 
   until valkey-cli -h 127.0.0.1 -p 6379 ping >/dev/null 2>&1; do
     sleep 1
