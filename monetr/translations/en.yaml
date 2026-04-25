@@ -1,0 +1,39 @@
+configuration:
+  bundle_services:
+    name: Bundle PostgreSQL and Valkey
+    description: Run PostgreSQL and Valkey inside this add-on, matching Monetr's Docker Compose stack. Turn off to use your own servers.
+  server_external_url:
+    name: monetr external URL
+    description: Optional. Set this when monetr is accessed through a domain, reverse proxy, or Home Assistant URL other than localhost.
+  pg_address:
+    name: PostgreSQL host
+    description: Required when bundle is disabled. Hostname or IP (see Supervisor app networking docs).
+  pg_port:
+    name: PostgreSQL port
+  pg_username:
+    name: PostgreSQL user
+    description: Bundled mode supports postgres only.
+  pg_password:
+    name: PostgreSQL password
+  pg_database:
+    name: PostgreSQL database name
+  redis_address:
+    name: Valkey / Redis host
+    description: Required when bundle is disabled and cache is enabled.
+  redis_enabled:
+    name: Enable cache (Valkey/Redis)
+  allow_sign_up:
+    name: Allow sign up
+  storage_enabled:
+    name: Enable storage
+  storage_provider:
+    name: Storage provider
+  migrate_on_start:
+    name: Run migrations on start
+  generate_certificates:
+    name: Generate TLS certificates on start
+  env_vars:
+    name: Extra environment variables
+    description: Optional advanced monetr environment variables, such as Plaid, email, or other documented settings.
+network:
+  4000/tcp: monetr web interface

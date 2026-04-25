@@ -1,0 +1,10 @@
+.DS_Store
+.env
+*.log
+*.tmp
+
+# Home Assistant add-on build outputs
+build/
+dist/
+*.tar
+*.tar.gz

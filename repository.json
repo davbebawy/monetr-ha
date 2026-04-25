@@ -1,0 +1,6 @@
+{
+  "name": "monetr Home Assistant add-on",
+  "udev": true,
+  "url": "https://github.com/davidbebawy/monetr-ha",
+  "maintainer": "davidbebawy"
+}

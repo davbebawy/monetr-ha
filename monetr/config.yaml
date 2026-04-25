@@ -1,0 +1,54 @@
+name: monetr
+version: "1.13.0"
+slug: monetr
+description: Personal finance and budgeting with optional bundled PostgreSQL and Valkey
+url: https://github.com/davidbebawy/monetr-ha/tree/main/monetr
+arch:
+  - aarch64
+  - amd64
+startup: application
+init: true
+apparmor: false
+backup: cold
+panel_icon: mdi:finance
+ports:
+  4000/tcp: 4000
+ports_description:
+  4000/tcp: monetr web UI
+webui: "http://[HOST]:[PORT:4000]/"
+watchdog: "tcp://[HOST]:[PORT:4000]"
+stage: stable
+options:
+  env_vars: []
+  bundle_services: true
+  server_external_url: ""
+  pg_address: ""
+  pg_port: 5432
+  pg_username: postgres
+  pg_password: null
+  pg_database: monetr
+  redis_address: ""
+  redis_enabled: true
+  allow_sign_up: true
+  storage_enabled: true
+  storage_provider: filesystem
+  migrate_on_start: true
+  generate_certificates: true
+schema:
+  env_vars:
+    - name: match(^[A-Za-z0-9_]+$)
+      value: str?
+  bundle_services: bool
+  server_external_url: "str?"
+  pg_address: "str?"
+  pg_port: port
+  pg_username: str
+  pg_password: password
+  pg_database: str
+  redis_address: "str?"
+  redis_enabled: bool
+  allow_sign_up: bool
+  storage_enabled: bool
+  storage_provider: str
+  migrate_on_start: bool
+  generate_certificates: bool
